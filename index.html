@@ -26,40 +26,38 @@ h1 {
   font-size: 3rem;
   color: #ffdd59;
   text-shadow: 0 0 10px #ffdd59, 0 0 20px #ff0050;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .profile-pic {
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   border: 4px solid #ffdd59;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   transition: transform 0.3s;
 }
 .profile-pic:hover {
   transform: scale(1.1);
 }
 
-/* Social Buttons */
 .social-buttons {
   display: flex;
-  gap: 25px;
+  gap: 22px;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 22px;
   position: relative;
 }
 
 .social-buttons a {
   display: inline-block;
-  padding: 15px 25px;
-  border-radius: 25px;
+  padding: 14px 24px;
+  border-radius: 22px;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   transition: transform 0.3s, box-shadow 0.3s;
-  position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .social-buttons a.youtube {
@@ -85,12 +83,12 @@ h1 {
 /* Toast Character */
 .toast {
   position: absolute;
-  right: -80px;
-  top: 0px;
+  right: -70px;
+  top: 4px;
   width: 90px;
-  height: 110px;
+  height: 108px;
   background: #f5c16c;
-  border-radius: 30px 30px 20px 20px;
+  border-radius: 30px 30px 22px 22px;
   animation: peek 3s ease-in-out infinite;
   z-index: 1;
 }
@@ -101,16 +99,16 @@ h1 {
   background: black;
   border-radius: 50%;
   position: absolute;
-  top: 35px;
+  top: 34px;
 }
-.toast .eye.left { left: 25px; }
-.toast .eye.right { right: 25px; }
+.toast .eye.left { left: 24px; }
+.toast .eye.right { right: 24px; }
 
 .toast .glasses {
   position: absolute;
   top: 28px;
   left: 18px;
-  width: 55px;
+  width: 54px;
   height: 18px;
   border: 3px solid black;
   border-radius: 8px;
@@ -121,25 +119,25 @@ h1 {
   height: 8px;
   background: #f5c16c;
   position: absolute;
-  top: 55px;
+  top: 54px;
 }
-.toast .arm.left { left: -25px; transform: rotate(20deg); }
-.toast .arm.right { right: -25px; transform: rotate(-20deg); }
+.toast .arm.left { left: -24px; transform: rotate(22deg); }
+.toast .arm.right { right: -24px; transform: rotate(-22deg); }
 
 .toast .leg {
   width: 8px;
-  height: 25px;
+  height: 24px;
   background: #f5c16c;
   position: absolute;
-  bottom: -25px;
+  bottom: -24px;
 }
 .toast .leg.left { left: 22px; }
 .toast .leg.right { right: 22px; }
 
 @keyframes peek {
-  0% { right: -80px; }
-  50% { right: -40px; }
-  100% { right: -80px; }
+  0% { right: -70px; }
+  50% { right: -38px; }
+  100% { right: -70px; }
 }
 
 /* Floating Glasses */
@@ -149,8 +147,8 @@ h1 {
 }
 .floating-glass {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   background: url('https://i.postimg.cc/ryY8M4dB/glass.png') no-repeat center/contain;
   animation: float linear infinite;
   opacity: 0.7;
@@ -158,8 +156,8 @@ h1 {
 
 footer {
   position: absolute;
-  bottom: 12px;
-  right: 12px;
+  bottom: 14px;
+  right: 14px;
   font-size: 0.85rem;
   color: #ffdd59;
   opacity: 0.8;
@@ -169,8 +167,8 @@ footer {
 <body>
 
 <div>
-  <!-- IMPORTANT: Upload profile.jpg to your GitHub folder -->
-  <img src="profile.jpg" alt="Donnie Profile" class="profile-pic">
+  <!-- MAKE SURE donnie-profile.jpg IS IN YOUR REPO ROOT -->
+  <img src="donnie-profile.jpg" alt="Donnie Profile" class="profile-pic">
 
   <h1>Donnie On The Rocks</h1>
 
@@ -178,7 +176,6 @@ footer {
     <a href="https://www.youtube.com/@thedonnieguy9685" target="_blank" class="youtube">▶️ YouTube</a>
     <a href="https://www.tiktok.com/@thedonnieguy" target="_blank" class="tiktok">🎵 TikTok</a>
 
-    <!-- Toast -->
     <div class="toast">
       <div class="glasses"></div>
       <div class="eye left"></div>
