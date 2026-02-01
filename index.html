@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Donnie | LIVE</title>
+<title>Donnie | TikTok & YouTube</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
@@ -21,42 +21,100 @@
   h1 { font-size: 3rem; margin-bottom: 5px; }
   .bio { color: #bbb; margin-bottom: 25px; font-size: 1.1rem; }
 
-  .buttons { max-width: 360px; margin: 0 auto 35px; display: flex; flex-direction: column; gap: 16px; }
-  a.button { padding: 16px; border-radius: 15px; font-size: 1.15rem; font-weight: 600; color: white; text-decoration: none; box-shadow: 0 6px 14px rgba(0,0,0,.6); transition: transform .2s ease, box-shadow .3s ease; }
-  a.button:hover { transform: translateY(-4px); box-shadow: 0 0 22px rgba(255,255,255,.6); }
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    border: 3px solid #fff;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .profile-pic:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 20px rgba(255,255,255,0.7);
+  }
+
+  .buttons {
+    max-width: 360px;
+    margin: 0 auto 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  a.button {
+    padding: 16px;
+    border-radius: 15px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 6px 14px rgba(0,0,0,.6);
+    transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  a.button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 22px rgba(255,255,255,.6);
+    background: linear-gradient(45deg, #ff0050, #ff7a00, #ff0050);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
   .tiktok { background: #010101; }
   .youtube { background: #ff0000; }
 
-  .tiktok-embed-wrapper { max-width: 380px; margin: 0 auto 40px; background: #111; border-radius: 18px; padding: 10px; box-shadow: 0 8px 20px rgba(0,0,0,.7); }
-
-  .live-box { max-width: 420px; margin: 0 auto; background: #161616; padding: 22px; border-radius: 18px; box-shadow: 0 8px 20px rgba(0,0,0,.7); }
+  .live-box {
+    max-width: 420px;
+    margin: 0 auto;
+    background: #161616;
+    padding: 22px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.7);
+    margin-bottom: 40px;
+  }
   .live-box h2 { margin: 0 0 10px; font-size: 1.6rem; }
   .live-box p { margin: 0; font-size: 1.15rem; color: #ddd; }
 
-  .credit { position: fixed; bottom: 12px; right: 15px; font-size: 0.75rem; color: #777; opacity: 0.8; }
+  .credit {
+    position: fixed;
+    bottom: 12px;
+    right: 15px;
+    font-size: 0.75rem;
+    color: #777;
+    opacity: 0.8;
+  }
 
-  @media(max-width:400px){ h1 { font-size: 2.4rem; } }
+  @media(max-width:400px){
+    h1 { font-size: 2.4rem; }
+    a.button { font-size: 1rem; padding: 14px; }
+  }
 </style>
 </head>
 
 <body>
+
+<!-- PROFILE PIC -->
+<img class="profile-pic" src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/294428933c59ff587d3f93bb67708de1~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=e831dad4&x-expires=1770141600&x-signature=GJOOvWMX%2BpWiZNKH6kP%2F0jog%2FO0%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my3" alt="Donnie Profile">
 
 <h1>Donnie</h1>
 <div class="bio">🔴 TikTok LIVE Creator · Night Streams</div>
 
 <!-- BUTTONS -->
 <div class="buttons">
-  <a class="button tiktok" href="https://www.tiktok.com/@thedonnieguy" target="_blank">Watch LIVE on TikTok</a>
-  <a class="button youtube" href="https://www.youtube.com/@thedonnieguy9685" target="_blank">YouTube Videos</a>
-</div>
-
-<!-- TIKTOK PROFILE EMBED -->
-<div class="tiktok-embed-wrapper">
-  <blockquote class="tiktok-embed"
-    cite="https://www.tiktok.com/@thedonnieguy"
-    data-unique-id="thedonnieguy"
-    data-embed-type="creator">
-  </blockquote>
+  <a class="button tiktok" href="https://www.tiktok.com/@thedonnieguy" target="_blank">TikTok</a>
+  <a class="button youtube" href="https://www.youtube.com/@thedonnieguy9685" target="_blank">YouTube</a>
 </div>
 
 <!-- LIVE SCHEDULE -->
@@ -67,6 +125,5 @@
 
 <div class="credit">Made by ToastieOfficial</div>
 
-<script async src="https://www.tiktok.com/embed.js"></script>
 </body>
 </html>
