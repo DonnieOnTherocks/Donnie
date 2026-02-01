@@ -5,11 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Donnie On The Rocks</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-/* --- Global Styles --- */
 body {
   margin: 0;
   padding: 0;
@@ -31,7 +29,6 @@ h1 {
   margin-bottom: 30px;
 }
 
-/* --- Profile Picture --- */
 .profile-pic {
   width: 150px;
   height: 150px;
@@ -44,13 +41,15 @@ h1 {
   transform: scale(1.1);
 }
 
-/* --- Buttons --- */
+/* Social Buttons */
 .social-buttons {
   display: flex;
   gap: 25px;
   justify-content: center;
   margin-top: 20px;
+  position: relative;
 }
+
 .social-buttons a {
   display: inline-block;
   padding: 15px 25px;
@@ -59,7 +58,10 @@ h1 {
   font-weight: bold;
   font-size: 1.2rem;
   transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  z-index: 2;
 }
+
 .social-buttons a.youtube {
   background: #ff0000;
   color: white;
@@ -69,6 +71,7 @@ h1 {
   transform: scale(1.1);
   box-shadow: 0 0 25px #ff0000;
 }
+
 .social-buttons a.tiktok {
   background: #010101;
   color: white;
@@ -79,17 +82,67 @@ h1 {
   box-shadow: 0 0 25px #01f7ff;
 }
 
-/* --- Footer --- */
-footer {
+/* Toast Character */
+.toast {
   position: absolute;
-  bottom: 12px;
-  right: 12px;
-  font-size: 0.85rem;
-  color: #ffdd59;
-  opacity: 0.8;
+  right: -80px;
+  top: 0px;
+  width: 90px;
+  height: 110px;
+  background: #f5c16c;
+  border-radius: 30px 30px 20px 20px;
+  animation: peek 3s ease-in-out infinite;
+  z-index: 1;
 }
 
-/* --- Floating Glasses Animation --- */
+.toast .eye {
+  width: 10px;
+  height: 10px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 35px;
+}
+.toast .eye.left { left: 25px; }
+.toast .eye.right { right: 25px; }
+
+.toast .glasses {
+  position: absolute;
+  top: 28px;
+  left: 18px;
+  width: 55px;
+  height: 18px;
+  border: 3px solid black;
+  border-radius: 8px;
+}
+
+.toast .arm {
+  width: 30px;
+  height: 8px;
+  background: #f5c16c;
+  position: absolute;
+  top: 55px;
+}
+.toast .arm.left { left: -25px; transform: rotate(20deg); }
+.toast .arm.right { right: -25px; transform: rotate(-20deg); }
+
+.toast .leg {
+  width: 8px;
+  height: 25px;
+  background: #f5c16c;
+  position: absolute;
+  bottom: -25px;
+}
+.toast .leg.left { left: 22px; }
+.toast .leg.right { right: 22px; }
+
+@keyframes peek {
+  0% { right: -80px; }
+  50% { right: -40px; }
+  100% { right: -80px; }
+}
+
+/* Floating Glasses */
 @keyframes float {
   0% { transform: translateY(100vh) rotate(0deg); }
   100% { transform: translateY(-10vh) rotate(360deg); }
@@ -102,26 +155,44 @@ footer {
   animation: float linear infinite;
   opacity: 0.7;
 }
+
+footer {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  font-size: 0.85rem;
+  color: #ffdd59;
+  opacity: 0.8;
+}
 </style>
 </head>
 <body>
 
-<!-- Profile Section -->
 <div>
-  <img src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/294428933c59ff587d3f93bb67708de1~tplv-tiktokx-cropcenter:1080:1080.jpeg" alt="Donnie Profile" class="profile-pic">
+  <!-- IMPORTANT: Upload profile.jpg to your GitHub folder -->
+  <img src="profile.jpg" alt="Donnie Profile" class="profile-pic">
+
   <h1>Donnie On The Rocks</h1>
 
-  <!-- Social Buttons -->
   <div class="social-buttons">
     <a href="https://www.youtube.com/@thedonnieguy9685" target="_blank" class="youtube">▶️ YouTube</a>
     <a href="https://www.tiktok.com/@thedonnieguy" target="_blank" class="tiktok">🎵 TikTok</a>
+
+    <!-- Toast -->
+    <div class="toast">
+      <div class="glasses"></div>
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="arm left"></div>
+      <div class="arm right"></div>
+      <div class="leg left"></div>
+      <div class="leg right"></div>
+    </div>
   </div>
 </div>
 
-<!-- Footer -->
 <footer>Made by ToastieOfficial</footer>
 
-<!-- Floating Glasses Script -->
 <script>
 const body = document.body;
 for(let i=0; i<10; i++) {
