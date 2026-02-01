@@ -2,171 +2,161 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Donnie On The Rocks</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
 <style>
-  /* --- BASE STYLES --- */
-  body {
-    margin: 0;
-    padding: 40px 15px 100px;
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-    min-height: 100vh;
-    text-align: center;
-    overflow-x: hidden;
-    position: relative;
-  }
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  /* --- NEON TEXT --- */
-  h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #fff;
-    text-transform: uppercase;
-    text-shadow: 0 0 5px #ff0050, 0 0 10px #ff0050, 0 0 20px #ff0050, 0 0 40px #ff0050;
-    margin-bottom: 10px;
-    animation: flicker 2s infinite;
-  }
+    body {
+        font-family: 'Arial', sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #0f0f0f;
+        overflow: hidden;
+        color: #fff;
+        position: relative;
+    }
 
-  @keyframes flicker {
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
-    20%, 24%, 55% { opacity: 0.5; }
-  }
+    /* Profile container */
+    .profile-container {
+        text-align: center;
+        z-index: 2;
+    }
 
-  .bio {
-    color: #ddd;
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    letter-spacing: 0.5px;
-  }
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 5px solid #ffdd59;
+        animation: float 3s ease-in-out infinite;
+    }
 
-  /* --- PROFILE PICTURE --- */
-  .profile-pic {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    border: 4px solid #ff0050;
-    object-fit: cover;
-    margin-bottom: 25px;
-    box-shadow: 0 0 20px #ff0050, 0 0 40px #ff7a00, 0 0 60px #ff0050;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-  }
-  .profile-pic:hover {
-    transform: scale(1.1) rotate(7deg);
-    box-shadow: 0 0 30px #ff0050, 0 0 60px #ff7a00, 0 0 90px #ff0050;
-  }
+    @keyframes float {
+        0%,100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
 
-  /* --- BUTTONS --- */
-  .buttons {
-    max-width: 380px;
-    margin: 0 auto 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
+    h1 {
+        font-size: 2.5rem;
+        margin: 20px 0;
+        text-shadow: 2px 2px 5px #ffdd59;
+    }
 
-  a.button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding: 16px;
-    font-weight: 600;
-    font-size: 1.15rem;
-    text-decoration: none;
-    border-radius: 18px;
-    color: #fff;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.7);
-    transition: all 0.3s ease;
-    background: linear-gradient(45deg, #ff0050, #ff7a00, #ff0050);
-    background-size: 200% 200%;
-    animation: gradientShift 3s ease infinite;
-  }
+    /* Links container */
+    .links-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 30px;
+        position: relative;
+    }
 
-  a.button:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 0 25px rgba(255,255,255,0.8), 0 0 50px rgba(255,122,0,0.6);
-  }
+    .link-box {
+        position: relative;
+        background: rgba(255, 221, 89, 0.1);
+        border: 2px solid #ffdd59;
+        padding: 15px 25px;
+        border-radius: 15px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
+    .link-box:hover {
+        transform: scale(1.1) rotate(-2deg);
+        box-shadow: 0 0 20px #ffdd59;
+    }
 
-  /* --- BUTTON COLORS OVERRIDE --- */
-  a.tiktok { background: #010101; }
-  a.youtube { background: #ff0000; }
+    .link-box a {
+        color: #ffdd59;
+        text-decoration: none;
+        font-weight: bold;
+    }
 
-  /* --- LIVE SCHEDULE BOX --- */
-  .live-box {
-    max-width: 420px;
-    margin: 0 auto 50px;
-    padding: 24px;
-    border-radius: 20px;
-    background: rgba(255, 0, 80, 0.1);
-    box-shadow: 0 6px 18px rgba(255,0,80,0.4);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255,0,80,0.3);
-  }
+    /* Toast + glass */
+    .decor {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        pointer-events: none;
+        animation: peek 5s infinite;
+    }
 
-  .live-box h2 {
-    margin: 0 0 12px;
-    font-size: 1.6rem;
-    color: #ff0050;
-    text-shadow: 0 0 10px #ff0050;
-  }
+    .toast { background: url('https://i.imgur.com/zK6Uj3f.png') no-repeat center/contain; top: -20px; left: -60px; }
+    .glass { background: url('https://i.imgur.com/xQn7rGf.png') no-repeat center/contain; top: -20px; right: -60px; }
 
-  .live-box p {
-    font-size: 1.1rem;
-    color: #fff;
-  }
+    @keyframes peek {
+        0%, 100% { transform: translateY(0); opacity: 1; }
+        50% { transform: translateY(-20px); opacity: 0.6; }
+    }
 
-  /* --- MADE BY CREDIT --- */
-  .credit {
-    position: fixed;
-    bottom: 12px;
-    right: 15px;
-    font-size: 0.75rem;
-    color: #aaa;
-    opacity: 0.8;
-  }
+    /* Floating glasses background */
+    .glass-bg {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: url('data:image/jpeg;base64,/9j/4AAQ...') no-repeat center/contain;
+        animation: float-glass linear infinite;
+        top: 0;
+    }
 
-  /* --- RESPONSIVE --- */
-  @media (max-width: 420px) {
-    h1 { font-size: 2.4rem; }
-    a.button { font-size: 1rem; padding: 14px; }
-    .profile-pic { width: 110px; height: 110px; }
-  }
+    @keyframes float-glass {
+        0% { transform: translateX(-100px) rotate(0deg); }
+        100% { transform: translateX(110vw) rotate(360deg); }
+    }
+
+    /* Bottom right credit */
+    .credit {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: 0.9rem;
+        color: #ffdd59;
+        opacity: 0.8;
+    }
 </style>
 </head>
-
 <body>
 
-<!-- PROFILE PICTURE -->
-<img class="profile-pic" src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/294428933c59ff587d3f93bb67708de1~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=e831dad4&x-expires=1770141600&x-signature=GJOOvWMX%2BpWiZNKH6kP%2F0jog%2FO0%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my3" alt="Donnie Profile">
+<!-- Background floating glasses -->
+<div class="glass-bg" style="animation-duration: 20s; top: 10%;"></div>
+<div class="glass-bg" style="animation-duration: 25s; top: 30%;"></div>
+<div class="glass-bg" style="animation-duration: 30s; top: 60%;"></div>
 
-<h1>Donnie On The Rocks</h1>
-<div class="bio">🔴 TikTok LIVE Creator · Night Streams</div>
+<!-- Profile container -->
+<div class="profile-container">
+    <img src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/294428933c59ff587d3f93bb67708de1~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=e831dad4-cf5f-4a90-xxxx" alt="Donnie On The Rocks" class="profile-pic">
+    <h1>Donnie On The Rocks</h1>
 
-<!-- BUTTONS -->
-<div class="buttons">
-  <a class="button tiktok" href="https://www.tiktok.com/@thedonnieguy" target="_blank">TikTok</a>
-  <a class="button youtube" href="https://www.youtube.com/@thedonnieguy9685" target="_blank">YouTube</a>
+    <div class="links-container">
+        <div class="link-box">
+            <a href="https://www.youtube.com/@thedonnieguy9685" target="_blank">YouTube</a>
+            <div class="decor toast"></div>
+        </div>
+        <div class="link-box">
+            <a href="https://www.tiktok.com/@thedonnieguy" target="_blank">TikTok</a>
+            <div class="decor glass"></div>
+        </div>
+    </div>
 </div>
 
-<!-- LIVE SCHEDULE -->
-<div class="live-box">
-  <h2>🕗 Live Schedule</h2>
-  <p>Every night from <strong>8PM – 10PM</strong></p>
-</div>
-
-<!-- CREDIT -->
 <div class="credit">Made by ToastieOfficial</div>
+
+<script>
+    // Add multiple random floating glasses in the background
+    const body = document.body;
+    for(let i = 0; i < 15; i++){
+        const g = document.createElement('div');
+        g.classList.add('glass-bg');
+        g.style.top = Math.random() * 90 + 'vh';
+        g.style.animationDuration = (10 + Math.random() * 20) + 's';
+        g.style.left = -50 + 'px';
+        body.appendChild(g);
+    }
+</script>
 
 </body>
 </html>
